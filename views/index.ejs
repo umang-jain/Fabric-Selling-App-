@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<div class="jumbotron">
+    <h1 class="display-4">CompanyName</h1>
+    <p class="lead">Address</p>
+    <hr class="my-4" id="indexhr">
+    <p>All types of Fabrics can be found in our shop at minimum prices.</p>
+    <a class="btn btn-primary btn-lg" href="/slj/new" role="button" id="indexadd">Add New Fabric<i class="fas fa-plus"></i></a>
+</div>
+
+<div class="container" id="cards">
+            <div class="row">
+                                    
+                <% clothes.forEach(function(cloth){ %>
+                    
+                <div class="col-lg-4" id="onecard">
+                    
+                    <div class="card border-info mb-3 text-center" style="width: 18rem;">
+                        <img class="card-img-top" src="<%= cloth.image %>" alt="<%= cloth.name %>">
+                        <div class="card-body">
+                            <h5 class="card-title"><%= cloth.name %></h5>
+                            <p class="card-text">Rs. <%= cloth.price %></p>
+                            <a href="/slj/<%= cloth._id %>" class="btn btn-info">Show</a>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <% }); %>
+               
+            </div>               
+</div>
+
+<% include ./partials/footer %>

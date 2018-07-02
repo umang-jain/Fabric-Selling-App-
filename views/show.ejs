@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<div class="container" id="show">
+   <div id="showcontent">
+       <h2><%= cloth.name %></h2>
+       <img src="<%= cloth.image %>" class="img-fluid img-thumbnail" alt="<%= cloth.name %>" id="showimg">
+       <div>
+           <ul class="list-group list-group-flush">
+               <li class="list-group-item">Price :Rs. <%= cloth.price %></li>
+               <li class="list-group-item">Seller : <%= cloth.seller %></li>
+               <li class="list-group-item">Fabric Type : <%= cloth.fabric %></li>
+               <li class="list-group-item">Description : <%= cloth.description %></li>
+           </ul>
+       </div> 
+   </div>
+   <div class="container" id="showbutton">
+       <a class="btn btn-outline-info" href="/slj/<%= cloth._id %>/edit" id="showedit">Edit Item</a>
+       <a href="/slj" class="btn btn-outline-warning" id="showback">Go Back</a>
+       <form action="/slj/<%= cloth._id %>?_method=DELETE" method="post" >
+           <Button id="showdelete" class="btn btn-outline-danger">Delete Item</Button>
+       </form>
+   </div>    
+    
+</div>
+
+<% include ./partials/footer %>
