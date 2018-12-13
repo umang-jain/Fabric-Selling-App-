@@ -23,62 +23,62 @@ var clothSchema = new mongoose.Schema({
 var Cloth = mongoose.model("Cloth",clothSchema);
 
 app.get("/",function(req,res){
-   res.render("home"); 
+   res.render("home");
 });
-app.get("/slj/about",function(req,res){
+app.get("/cloth/about",function(req,res){
     res.render("about");
 })
-app.get("/slj",function(req,res){
+app.get("/cloth",function(req,res){
     Cloth.find({},function(err,clothes){
        if(err){
            console.log(err);
        }else{
-           res.render("index",{clothes:clothes}); 
+           res.render("index",{clothes:clothes});
        }
     });
 });
-app.post("/slj",function(req,res){
+app.post("/cloth",function(req,res){
     req.body.cloth.description=req.sanitize(req.body.cloth.description);
     Cloth.create(req.body.cloth,function(err,cloth){
        if(err){
            res.render("new");
        }else{
            res.redirect("/slj");
-       } 
+       }
     });
 });
-app.get("/slj/new",function(req,res){
-   res.render("new"); 
+app.get("/cloth/new",function(req,res){
+   res.render("new");
 });
-app.get("/slj/:id",function(req,res){
+app.get("/cloth/:id",function(req,res){
     Cloth.findById(req.params.id,function(err,foundcloth){
        if(err){
            console.log(err);
        } else{
-           res.render("show",{cloth:foundcloth}); 
+           res.render("show",{cloth:foundcloth});
        }
-    }); 
+    });
 });
-app.put("/slj/:id",function(req,res){
+app.put("/cloth/:id",function(req,res){
     req.body.cloth.description=req.sanitize(req.body.cloth.description);
     Cloth.findByIdAndUpdate(req.params.id,req.body.cloth,function(err,foundcloth){
         if(err){
             res.redirect("/slj");
         } else{
-            res.redirect("/slj/"+req.params.id) 
+            res.redirect("/slj/"+req.params.id)
         }
     });
 });
-app.get("/slj/:id/edit",function(req,res){
+app.get("/cloth/:id/edit",function(req,res){
     Cloth.findById(req.params.id,function(err,foundcloth){
         if(err){
             console.log(err);
         } else{
-            res.render("edit",{cloth:foundcloth}); 
+            res.render("edit",{cloth:foundcloth});
         }
-    }); 
+    });
 });
-app.delete("/slj/:id",function(req,res){
+app.delete("/cloth/:id",function(req,res){
     Cloth.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect("/slj");
@@ -89,5 +89,5 @@ app.delete("/slj/:id",function(req,res){
 });
 
 app.listen("3000",function(req,res){
-   console.log("Starting Server on port 3000"); 
+   console.log("Starting Server on port 3000");
 });
