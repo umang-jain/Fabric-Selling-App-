@@ -5,6 +5,8 @@ var express = require("express"),
     methodoverride=require("method-override"),
     expresssanitizer= require("express-sanitizer");
 
+var PORT = process.env.PORT || 3000;
+
 app.use(expresssanitizer());
 app.set("view engine","ejs");
 app.use(express.static("public"));
@@ -89,6 +91,6 @@ app.delete("/cloth/:id",function(req,res){
     });
 });
 
-app.listen("3000",function(req,res){
+app.listen(PORT,function(req,res){
    console.log("Starting Server on port 3000");
 });
