@@ -11,7 +11,8 @@ app.use(express.static("public"));
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(methodoverride("_method"));
 
-mongoose.connect("mongodb://localhost/cloth");
+mongoose.connect("mongodb://admin:admin123@ds125302.mlab.com:25302/cloth");
+
 var clothSchema = new mongoose.Schema({
     name:String,
     image:String,
