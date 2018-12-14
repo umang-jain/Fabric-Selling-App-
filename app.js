@@ -29,9 +29,7 @@ app.get("/",function(req,res){
    res.render("home");
 });
 app.get("/slj/about",function(req,res){
-    console.log("calll hua");
     res.render("about");
-    // res.send('asdasd');
 })
 app.get("/slj",function(req,res){
     Cloth.find({},function(err,clothes){
@@ -55,7 +53,7 @@ app.post("/slj",function(req,res){
 app.get("/slj/new",function(req,res){
    res.render("new");
 });
-app.get("/cloth/:id",function(req,res){
+app.get("/slj/:id",function(req,res){
     Cloth.findById(req.params.id,function(err,foundcloth){
        if(err){
            console.log(err);
