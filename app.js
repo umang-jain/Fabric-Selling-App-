@@ -28,10 +28,12 @@ var Cloth = mongoose.model("Cloth",clothSchema);
 app.get("/",function(req,res){
    res.render("home");
 });
-app.get("/cloth/about",function(req,res){
+app.get("/slj/about",function(req,res){
+    console.log("calll hua");
     res.render("about");
+    // res.send('asdasd');
 })
-app.get("/cloth",function(req,res){
+app.get("/slj",function(req,res){
     Cloth.find({},function(err,clothes){
        if(err){
            console.log(err);
@@ -40,7 +42,7 @@ app.get("/cloth",function(req,res){
        }
     });
 });
-app.post("/cloth",function(req,res){
+app.post("/slj",function(req,res){
     req.body.cloth.description=req.sanitize(req.body.cloth.description);
     Cloth.create(req.body.cloth,function(err,cloth){
        if(err){
@@ -50,7 +52,7 @@ app.post("/cloth",function(req,res){
        }
     });
 });
-app.get("/cloth/new",function(req,res){
+app.get("/slj/new",function(req,res){
    res.render("new");
 });
 app.get("/cloth/:id",function(req,res){
@@ -62,7 +64,7 @@ app.get("/cloth/:id",function(req,res){
        }
     });
 });
-app.put("/cloth/:id",function(req,res){
+app.put("/slj/:id",function(req,res){
     req.body.cloth.description=req.sanitize(req.body.cloth.description);
     Cloth.findByIdAndUpdate(req.params.id,req.body.cloth,function(err,foundcloth){
         if(err){
@@ -72,7 +74,7 @@ app.put("/cloth/:id",function(req,res){
         }
     });
 });
-app.get("/cloth/:id/edit",function(req,res){
+app.get("/slj/:id/edit",function(req,res){
     Cloth.findById(req.params.id,function(err,foundcloth){
         if(err){
             console.log(err);
@@ -81,7 +83,7 @@ app.get("/cloth/:id/edit",function(req,res){
         }
     });
 });
-app.delete("/cloth/:id",function(req,res){
+app.delete("/slj/:id",function(req,res){
     Cloth.findByIdAndRemove(req.params.id,function(err){
         if(err){
             res.redirect("/slj");
