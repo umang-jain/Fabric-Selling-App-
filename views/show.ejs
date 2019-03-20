@@ -11,7 +11,7 @@
                <li class="list-group-item">Fabric Type : <%= cloth.fabric %></li>
                <li class="list-group-item">Description : <%= cloth.description %></li>
            </ul>
-       </div> 
+       </div>
    </div>
    <div class="container" id="showbutton">
        <a class="btn btn-outline-info" href="/slj/<%= cloth._id %>/edit" id="showedit">Edit Item</a>
@@ -19,8 +19,8 @@
        <form action="/slj/<%= cloth._id %>?_method=DELETE" method="post" >
            <Button id="showdelete" class="btn btn-outline-danger">Delete Item</Button>
        </form>
-   </div>    
-    
+   </div>
+
 </div>
 
 <% include ./partials/footer %>
