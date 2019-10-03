@@ -4,3 +4,4 @@ This app can be used a starting template for various projects.
 
 Heroku link:
 https://fabric-selling-app.herokuapp.com/
+made by-Umang Jain
