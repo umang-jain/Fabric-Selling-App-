@@ -1,7 +1,21 @@
+#contenthome{
+    color: white;
+    text-align: center;
+    margin-top: 15em;
+}
+
 #navbar{
     height: 60px;
-    background:transparent;
+    /* background:transparent; */
 }
+.navbar-light span.navbar-toggler-icon {
+    stroke: white;
+    color: white;
+  }
+  /* change hamburger button border color */
+  button.navbar-toggler.navbar-toggler-right {
+    border-color: white;
+  }
 .fas.fa-tshirt{
     margin-right: 10px;
 }
@@ -11,9 +25,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
-#right{
-    margin-left: 25em;
-}
+
 .navbar-light .navbar-nav .nav-link{
     color: white !important;
     margin: 10px;
@@ -24,11 +36,7 @@ body{
 .navbar-light .navbar-brand{
     color: white !important;
 }
-#contenthome{
-    color: white;
-    text-align: center;
-    margin-top: 15%;
-}
+
 .btn.btn-info.btn-lg{
     margin-top: 20px;
 }
@@ -55,4 +63,34 @@ body{
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+@media screen and (min-width: 1080px) {
+    #right{
+        margin-left: 25em;
+    }
+}
+@media screen and (max-width: 800px) {
+    /*Content text On phone*/
+    #contenthome{
+        color: white;
+        text-align: center;
+        margin-top: 5%;
+    }
+    .contentText{
+        font-size: 5em;
+    }
+    .collapse .navbar-collapse{
+        background-color: white !important;
+    }
+    #contentButton{
+        font-size: x-large;
+    }
+}
+@media screen and (max-width: 991px) {
+    /*Show Hamburger*/
+    
+}
+@media screen and (min-width: 991px) {
+    /*Hide Hamburger*/
+   
 }
